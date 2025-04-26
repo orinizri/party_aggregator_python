@@ -1,0 +1,6 @@
+/secrets
+.DS_Store
+/.conda
+/snap_table
+cached_sheets.json
+.env
