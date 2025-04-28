@@ -4,3 +4,7 @@
 /snap_table
 cached_sheets.json
 .env
+*/constants.js
+*/node_modules
+cached_sheets_v1.json
+arrived_pivot.csv
