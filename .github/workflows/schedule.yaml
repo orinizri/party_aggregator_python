@@ -1,0 +1,30 @@
+name: Update Attendance Matrix
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Every day at 3AM UTC (you can adjust)
+
+jobs:
+  update-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas gspread google-api-python-client openpyxl
+
+      - name: Run Matrix Update Script
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+          ROOT_FOLDER_ID: ${{ secrets.ROOT_FOLDER_ID }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > service_account.json
+          python scheduler/update_matrix.py
