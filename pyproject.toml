@@ -1,0 +1,13 @@
+[project]
+name = "meta_snap_project"
+version = "0.1.0"
+description = "Party NLP and AI Assistant Project"
+authors = [{ name = "Ori Kanner" }]
+dependencies = [
+    "openai",
+    "python-dotenv",
+    "tenacity",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]

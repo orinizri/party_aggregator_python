@@ -1,5 +1,14 @@
+
+# Environment and secrets
+.env
+*.env
+secrets/*
 /secrets
+
+# IDE or OS metadata
+.vscode/
 .DS_Store
+
 /.conda
 /snap_table
 cached_sheets.json
@@ -12,3 +21,10 @@ df.csv
 top_3000_most_freq_wiki.csv
 /outputs
 /data
+*.egg-info/
+build/
+dist/
+
+# Python bytecode
+__pycache__/
+*.pyc
